@@ -20,6 +20,14 @@ const config: GatsbyConfig = {
   trailingSlash: `never`,
   plugins: [
     {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "G-K7XNKJQ3S4",
+        head: false, // Place the tracking script in the <head> instead of <body>
+        anonymize: false, // Anonymize IP addresses of visitors
+      },
+    },
+    {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       // See the theme's README for all available options
       options: {
