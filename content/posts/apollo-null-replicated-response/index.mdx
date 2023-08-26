@@ -1,0 +1,61 @@
+---
+title: Apollo returning null consistently
+date: 2023-08-26
+tags:
+  - Code
+  - Typescript
+  - Cache
+  - Apollo
+---
+
+# The problem
+
+This is what your API returns
+
+```json
+{
+  "data": {
+    "items": [
+      {
+        "id": null,
+        "name": "Item 1"
+      },
+      {
+        "id": null,
+        "name": "Item 2"
+      },
+      {
+        "id": null,
+        "name": "Item 3"
+      }
+    ]
+  }
+}
+```
+
+# What is actually returned ⚠️
+
+If you call the `useQuery` that is provided in apollo ( version: `"apollo-client": "2.6.10"`), this is what you get in the response.
+
+```json
+{
+  "data": {
+    "items": [
+      {
+        "id": null,
+        "name": "Item 1"
+      },
+      {
+        "id": null,
+        "name": "Item 1" <--- should be Item 2
+      },
+      {
+        "id": null,
+        "name": "Item 1" <--- should be Item 3
+      }
+    ]
+  }
+}
+```
+
+[Here's a StackOverflow post that also talks about this problem](https://stackoverflow.com/questions/48840223/apollo-duplicates-first-result-to-every-node-in-array-of-edges)

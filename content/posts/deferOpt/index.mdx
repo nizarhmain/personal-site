@@ -1,0 +1,79 @@
+---
+title: deferOpt
+date: 2023-08-26
+tags:
+  - Code
+  - Scala
+  - Sangria
+  - Backend
+---
+
+---
+
+# The problem
+
+I might have an Id of something `Option[x]`, if it's there, fetch it!, otherwise don't
+
+# The solution
+
+Use `DeferOpt`
+
+Here's an example
+
+```scala
+
+import sangria.execution.deferred.Deferred
+import sangria.macros.derive._
+import sangria.schema._
+
+// Assume you have a simple data model
+case class Book(id: Int, title: String)
+
+object BookData {
+  private val books = List(
+    Book(1, "Book 1"),
+    Book(2, "Book 2"),
+    Book(3, "Book 3")
+  )
+
+  def getBookById(id: Int): Option[Book] = books.find(_.id == id)
+}
+
+// Define a GraphQL schema
+val BookType = deriveObjectType[Unit, Book]()
+
+val QueryType = ObjectType(
+  "Query",
+  fields[Unit, Unit](
+    Field("book", OptionType(BookType),
+      arguments = List(Argument("id", IntType)),
+      resolve = ctx => DeferredValue(BookData.getBookById(ctx.args.arg[Int]("id")))
+    )
+  )
+)
+
+val schema = Schema(QueryType)
+
+// Now you can use `deferOpt` in your query
+val query =
+  graphql"""
+    query {
+      book(id: 1) @deferOpt {
+        title
+      }
+    }
+  """
+
+// Resolve the query
+import sangria.execution.{Executor, QueryAnalysisError}
+
+val result = Executor.execute(schema, query, deferredResolver = sangria.execution.deferred.DeferOptResolver.fetchDeferred)
+
+// Print the result
+import scala.concurrent.Await
+import scala.concurrent.duration._
+
+val eventualResult = result.map(_.toString)
+val resultString = Await.result(eventualResult, 5.seconds)
+println(resultString)
+```

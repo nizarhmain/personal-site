@@ -1,0 +1,40 @@
+---
+title: Type only import
+date: 2023-08-26
+tags:
+  - Code
+  - Typescript
+  - React
+---
+
+type-only imports and exports ===> reduce bundle size and not importing runtime
+
+[Link to official docs](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html#type-only-imports-and-export)
+
+```ts
+// myModule.ts
+export interface MyType {
+  prop1: string;
+  prop2: number;
+}
+
+export function myFunction() {
+  console.log("This is a function");
+}
+```
+
+```ts
+// main.ts
+import type { MyType } from "./myModule";
+
+const myVariable: MyType = {
+  prop1: "Hello",
+  prop2: 42,
+};
+
+// You won't be able to use myFunction here, only the type MyType is imported.
+```
+
+## The advantage of type-only imports
+
+bundle size and you're only importing the things you need without the extra runtime stuff.

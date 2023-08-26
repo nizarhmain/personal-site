@@ -1,0 +1,27 @@
+---
+title: .collect
+date: 2023-08-26
+tags:
+  - Code
+  - Scala
+  - Backend
+---
+
+# The problem
+
+I want to exclude a bunch of Nones
+
+# The solution
+
+The .collect method allows you to apply a partial function to the value inside a Valid instance and accumulate errors in case the partial function is not defined for the given value. If the partial function is defined and produces a value, it returns a new Valid instance with the transformed value.
+
+For instance, you can use collect on an Option to achieve filtering based on some condition while excluding None values:
+
+```scala
+
+val optionList: List[Option[Int]] = List(Some(1), None, Some(2), None, Some(3))
+val filteredValues: List[Int] = optionList.collect { case Some(value) => value }
+
+println(filteredValues) // Output: List(1, 2, 3)
+
+```

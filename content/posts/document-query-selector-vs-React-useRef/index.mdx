@@ -1,0 +1,12 @@
+---
+title: document.querySelector("") in react
+date: 2023-08-26
+tags:
+  - Code
+  - Typescript
+  - React
+---
+
+# The problem
+
+Try to avoid doing this not use the `document.querySelector("input").scrollIntoView` directly in react since it bypasses the virtual dom, `useRef` instead.
