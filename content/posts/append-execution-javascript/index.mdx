@@ -1,0 +1,15 @@
+---
+title: Make execution execute last in the queue
+date: 2023-10-10
+tags:
+  - Code
+  - Javascript
+---
+
+# Make execution last in the Javascript queue
+
+push this to the end of the execution queue.
+
+```typescript
+  onClick={() => setTimeout(() => setIsUpdating(() => true), 0)}
+```
