@@ -1,5 +1,5 @@
 ---
-title: How to debug Typescript while using Neovim
+title: How to debug Typescript while using Neovim 🎴
 date: 2023-12-11
 tags:
   - Code
@@ -15,5 +15,17 @@ tsc && node inspect main.js example.txt
 
 Then make sure that somewhere in your code you have the `debugger` keyword used.
 
+![screen1](./screenshot.png)
+It will look like this, make sure to expose source-maps in the `tsconfig.json`.
 
-![screen1](./screen.png)
+```json
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "sourceMap": true
+  }
+}
+```
