@@ -47,13 +47,16 @@ const config: GatsbyConfig = {
         ],
         externalLinks: [
           {
-            name: `Github`,
+            name: `Github 💻`,
             url: `https://github.com/nizarhmain`,
           },
-
           {
-            name: `Twitter`,
+            name: `Twitter 🐦`,
             url: `https://twitter.com/Nizar_Hmain`,
+          },
+          {
+            name: `Linkedin 🔗`,
+            url: `https://www.linkedin.com/in/nizapizza`,
           },
         ],
       },

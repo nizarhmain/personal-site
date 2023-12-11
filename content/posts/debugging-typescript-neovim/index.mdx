@@ -4,16 +4,31 @@ date: 2023-12-11
 tags:
   - Code
   - Javascript
+  - Neovim
+  - Typescript
 banner: ./screenshot.png
 ---
 
 # How to debug Typescript while using Neovim
+It's basically a pain in the d**k to debug things in general in neovim and I didn't want to loose a million years on a setup.
+A quick work around is to simply use the `inspect` flag that comes with node. (Maybe it's available in deno & bun, but I don't know that for sure).
 
 ```bash
+# you need to have tsconfig.json properly configured
 tsc && node inspect main.js example.txt
 ```
 
 Then make sure that somewhere in your code you have the `debugger` keyword used.
+![debugger](./screenshot4.png)
+
+When you run the command, it will trigger a debugger in the cli 
+![debugger](./screenshot2.png)
+
+This is not exactly what we want, since we want to use the Chrome dev tools debugger that comes with a lot of nice things (Mostly the UI).
+![debugger](./screenshot3.png)
+
+You can use, but you don't have all the variables in the scope defined on the right side.
+
 
 ![screen1](./screenshot.png)
 It will look like this, make sure to expose source-maps in the `tsconfig.json`.
@@ -29,3 +44,5 @@ It will look like this, make sure to expose source-maps in the `tsconfig.json`.
   }
 }
 ```
+
+The proper way to do it in nvim would be to use a DAP but make sure it makes sense if it makes sense in terms of time investement for you.
