@@ -27,7 +27,6 @@ const config: GatsbyConfig = {
         ],
         pluginConfig: {
           head: true,
-          anonymize_ip: true,
         },
       },
     },
