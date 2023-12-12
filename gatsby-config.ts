@@ -20,11 +20,15 @@ const config: GatsbyConfig = {
   trailingSlash: `never`,
   plugins: [
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: "G-K7XNKJQ3S4",
-        head: false, // Place the tracking script in the <head> instead of <body>
-        anonymize: false, // Anonymize IP addresses of visitors
+        trackingIds: [
+          "G-K7XNKJQ3S4", // Google Analytics / GA
+        ],
+        pluginConfig: {
+          head: true,
+          anonymize_ip: true,
+        },
       },
     },
     {
