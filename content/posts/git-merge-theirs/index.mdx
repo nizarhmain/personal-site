@@ -1,0 +1,14 @@
+---
+title: Git merge but taken everything from remote
+date: 2024-02-23
+tags:
+  - Git
+  - Code
+---
+
+If you're running a static analysis tool (or some other automatic tool, like a linter), it can be hard to solve merge conflicts depending on how frequent code updates are.
+A simple way to always take whatever code is on the remote is running this:
+
+```sh
+git merge X --theirs origin/master
+```
