@@ -1,0 +1,3 @@
+User-agent: *
+
+sitemap: https://nizapizza.com/sitemap-index.xml
