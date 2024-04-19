@@ -11,7 +11,7 @@ const config: GatsbyConfig = {
     siteTitle: ``,
     siteTitleAlt: `Nizar Hmain's Blog - `,
     siteHeadline: `Nizar Hmain's Blog`,
-    siteUrl: `https://nizapizza.com`,
+    siteUrl: `https://nizarhmain.github.io/personal-site/`,
     siteDescription: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting.`,
     siteImage: `/banner.jpg`,
     siteLanguage: `en`,
