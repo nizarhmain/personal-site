@@ -4,6 +4,7 @@ import "dotenv/config";
 const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
 
 const config: GatsbyConfig = {
+  pathPrefix: "/personal-site",
   siteMetadata: {
     // You can overwrite values here that are used for the SEO component
     // You can also add new values here to query them like usual
@@ -11,7 +12,7 @@ const config: GatsbyConfig = {
     siteTitle: ``,
     siteTitleAlt: `Nizar Hmain's Blog - `,
     siteHeadline: `Nizar Hmain's Blog`,
-    siteUrl: `https://nizarhmain.github.io/personal-site/`,
+    siteUrl: `https://nizarhmain.github.io`,
     siteDescription: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting.`,
     siteImage: `/banner.jpg`,
     siteLanguage: `en`,
@@ -37,15 +38,15 @@ const config: GatsbyConfig = {
         navigation: [
           {
             title: `Homepage`,
-            slug: `/personal-site/`,
+            slug: `/`,
           },
           {
             title: `Blog`,
-            slug: `/personal-site/blog`,
+            slug: `/blog`,
           },
           {
             title: `About`,
-            slug: `/personal-site/about`,
+            slug: `/about`,
           },
         ],
         externalLinks: [
