@@ -37,15 +37,15 @@ const config: GatsbyConfig = {
         navigation: [
           {
             title: `Homepage`,
-            slug: `/`,
+            slug: `/personal-site/`,
           },
           {
             title: `Blog`,
-            slug: `/blog`,
+            slug: `/personal-site/blog`,
           },
           {
             title: `About`,
-            slug: `/about`,
+            slug: `/personal-site/about`,
           },
         ],
         externalLinks: [
@@ -67,7 +67,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        output: `/`,
+        output: `/personal-site/`,
       },
     },
     {
