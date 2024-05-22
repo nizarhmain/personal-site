@@ -54,7 +54,7 @@ const config: GatsbyConfig = {
             url: `https://github.com/nizarhmain`,
           },
           {
-            name: `Twitter 🐦`,
+            name: `𝕏`,
             url: `https://twitter.com/Nizar_Hmain`,
           },
           {
