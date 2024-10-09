@@ -1,0 +1,12 @@
+---
+title: Ignore files locally only in repo without changing .gitignore
+date: 2024-10-09
+tags:
+  - Git
+  - Code
+---
+
+If you cannot add something to `.gitignore` but you still have to ignore it (if you need some keys or any ENV that needs to be maintain private but cannot be source checked).
+You have to add it here `.git/info/exclude` and append it at the bottom.
+
+
