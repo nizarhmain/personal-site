@@ -1,0 +1,18 @@
+---
+title: Sort by oldest git file
+date: 2024-12-03
+tags:
+  - Git
+---
+
+Use this, if you want to print a list of files in a git repository sorted by the date since they were last touched.
+
+```bash
+git ls-tree -r --name-only HEAD | while read filename; do
+   echo "$(git log -1 --date=iso --format="%ad |" -- $filename) $filename"
+done | sort -t '|' -k 1
+```
+
+
+
+
