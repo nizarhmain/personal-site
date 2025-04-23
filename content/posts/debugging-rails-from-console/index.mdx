@@ -1,0 +1,48 @@
+---
+title: How to debug rails from console with prepend 💎
+date: 2025-03-23
+tags:
+  - Code
+  - Ruby
+  - Rails
+---
+
+# How to debug from rails from the console
+
+Imagine you have this
+
+```ruby
+class Dog
+  def speak
+    "woof"
+  end
+end
+```
+
+```ruby
+module LoudDog
+  def speak
+    "WOOF!!!"
+  end
+end
+
+Dog.prepend(LoudDog)
+
+Dog.new.speak
+# => "WOOF!!!"
+```
+
+Boom — speak is overridden!
+
+Similarly you can do this
+
+```ruby
+module MyDebugPatch
+  def find_virtual_account
+    puts "🔍 Overridden find_virtual_account called"
+    super
+  end
+end
+
+Collection::OrderServices::CreateOrder.prepend(MyDebugPatch)
+```
